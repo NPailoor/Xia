@@ -15,7 +15,7 @@ public class Debris extends Hex {
 			myShip = s;
 		}
 		else {
-			s.die();
+			s.destroy();
 		}
 	}
 }
