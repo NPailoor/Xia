@@ -14,15 +14,38 @@ public class PlanetHex extends Hex{
 		myPlanet = p;
 		this(A, B, C, D, E, F, null);
 	}
-	public boolean canBuy() {
+	public boolean canBuyOutfity() {
 		return true;
 	}
 	
-	public boolean canSell() {
+	public boolean canSellOutfit() {
 		return true;
 	}
 	public boolean planet() {
 		return myPlanet;
 	}
 	
+	public boolean canBuy(int cargo) {
+		if (cargo < 0 | cargo > 5) {
+			throw new IllegalArgumentException("Invalid Cargo");
+		} else {
+			return (myPlanet.supply == cargo);
+		
+		}
+	}
+	
+	publi. boolean canSell(int cargo) {
+		if (cargo < 0 | cargo > 5) {
+			throw new IllegalArgumentException("Invalid Cargo");
+		} else {
+			return (myPlanet.demand == cargo);
+		
+		}
+	}
+	
+	public boolean canRefuel() {
+		return true;
+	}
+	}
+	}
 }
