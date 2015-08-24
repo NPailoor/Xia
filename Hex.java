@@ -74,4 +74,12 @@ public class Hex {
 		// with the ship calling the Hex's method. I think the later solution is cleaner, so I've left this line commented out.
 		myShip = null;
 	}
+	
+	public boolean canBuy() {
+		return null;
+	}
+	
+	public boolean canSell() {
+		return null
+	}
 }
