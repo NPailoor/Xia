@@ -46,6 +46,4 @@ public class PlanetHex extends Hex{
 	public boolean canRefuel() {
 		return true;
 	}
-	}
-	}
 }
