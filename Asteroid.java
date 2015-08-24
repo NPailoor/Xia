@@ -8,7 +8,7 @@
 	}	
 	
 	public void shipEnter(Ship s) {
-		diceRoll = d20.nextInt(20) + 1;
+		int diceRoll = d20.nextInt(20) + 1;
 		if (diceRoll > 11) {
 			myShip = s;
 		}
