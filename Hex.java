@@ -76,10 +76,10 @@ public class Hex {
 	}
 	
 	public boolean canBuy() {
-		return null;
+		return false;
 	}
 	
 	public boolean canSell() {
-		return null
+		return false;
 	}
 }
