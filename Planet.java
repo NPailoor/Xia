@@ -1,9 +1,9 @@
 public class Planet extends Hex{
 	public boolean canBuy() {
-		return null;
+		return true;
 	}
 	
 	public boolean canSell() {
-		return null
+		return true;
 	}
 }
