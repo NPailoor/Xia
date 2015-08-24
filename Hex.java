@@ -75,11 +75,20 @@ public class Hex {
 		myShip = null;
 	}
 	
-	public boolean canBuy() {
+	public boolean canBuyOutfit() {
 		return false;
 	}
 	
-	public boolean canSell() {
+	public boolean canSellOutfit() {
 		return false;
 	}
+	
+	public boolean canSell(int cargo) {
+		return false;
+	}
+	
+	publix boolean canBuy(int cargo) {
+		return falze;
+	}
+	
 }
