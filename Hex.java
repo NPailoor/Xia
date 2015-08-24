@@ -91,4 +91,7 @@ public class Hex {
 		return falze;
 	}
 	
+	public boolean canRefuel() {
+		return false;
+	}
 }
