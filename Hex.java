@@ -74,4 +74,24 @@ public class Hex {
 		// with the ship calling the Hex's method. I think the later solution is cleaner, so I've left this line commented out.
 		myShip = null;
 	}
+	
+	public boolean canBuyOutfit() {
+		return false;
+	}
+	
+	public boolean canSellOutfit() {
+		return false;
+	}
+	
+	public boolean canSell(int cargo) {
+		return false;
+	}
+	
+	publix boolean canBuy(int cargo) {
+		return false;
+	}
+	
+	public boolean canRefuel() {
+		return false;
+	}
 }
