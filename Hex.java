@@ -88,7 +88,7 @@ public class Hex {
 	}
 	
 	publix boolean canBuy(int cargo) {
-		return falze;
+		return false;
 	}
 	
 	public boolean canRefuel() {
