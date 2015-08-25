@@ -38,13 +38,15 @@ public class Border {
    }
    
    public Object[] move(Ship s, Hex A) { // Returns the popped tile stack and the new tile. Right now I've implemented this as returning an object array. Is there a cleaner way to do this?
+      newTile = null;
       Hex B = peek(A);
       if(B == null) { // Alexander's Code
          if (tileStack.isEmpty()) {
              return null; // Nowhere to explore 
          }
-         B = tileStack(0);
          newTile = tileStack.remove(0);
+         B = newTile.getHex(); // This method will be written with Tile and will pick a border hex from the tile.
+         Hex(Hex.indexOf(null)) = B; // can indexOf be used like this?
       }
       B.shipEnter(s);
       return {newTile, tileStack}; // allows the rest of the game to update the stack. The new tile also somehow needs to be returned
