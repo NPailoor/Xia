@@ -22,6 +22,6 @@ public class Ship {
    
    public void move(Hex target) { // Alexander's Code
       position = target;
-      start.shipEnter(target);
+      target.shipEnter(this);
    }
 }
