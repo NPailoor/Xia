@@ -3,6 +3,7 @@ public class Hex {
 	//[Spice, Holla, Cyber, Plasma, Terra]
 	public int[] cargo;
 	public Ship myShip;
+	public Tile myTile; // Hexes must know what tile their on, at minimum
 	
    public Hex(Border[] b, Ship s) {
       this.neighbors = b;
@@ -65,7 +66,7 @@ public class Hex {
 	}
 
 	public void shipLeave(Border b) {
-		b.move(myShip, this);
+		b.move(myShip, this, myTile); // The border needs to know the tile being exited
 		myShip = null;
 	}
 
