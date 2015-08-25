@@ -18,8 +18,10 @@ public class Tile {
     side[5] = Y;
   }
   
-  public Hex mergeTile(Tile T, index i) {
+  public Hex mergeTile(Tile T, index i, index j) {
+    Hex B = this[i][j].spaces[0]; //Draws Hex from corresponding border
     this.side[i] = T.side[i];
+    return B;
   }
     
 }
