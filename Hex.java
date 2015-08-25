@@ -5,21 +5,23 @@ public class Hex {
 	public Ship myShip;
 	public Tile myTile; // Hexes must know what tile their on, at minimum
 	
-   public Hex(Border[] b, Ship s) {
+   public Hex(Border[] b, Ship s, Tile t) {
       this.neighbors = b;
       myShip = s;
       cargo = new int[5];
+      myTile = t;
    }
 	//Topmost border is A, then working clockwise is B, C, D, E, F
-	public Hex(Border A, Border B, Border C, Border D, Border E, Border F, Ship s) {
+   public Hex(Border A, Border B, Border C, Border D, Border E, Border F, Ship s, Tile t) {
       Border[] neighbors = {A, B, C, D, E, F};
       this.neighbors = neighbors;
 		myShip = s;
       cargo = new int[5];
-	}
+      myTile = t;
+   }
 	
-	public Hex(Border A, Border B, Border C, Border D, Border E, Border F) {
-		this(A, B, C, D, E, F, null);
+	public Hex(Border A, Border B, Border C, Border D, Border E, Border F, Tile t) {
+		this(A, B, C, D, E, F, null, t);
 	}	
 	
 	public void deposit(int[] cubes) {
