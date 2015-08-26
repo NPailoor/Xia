@@ -32,8 +32,10 @@ public class PlanetBorder extends Border {
             s.damage(diceRoll);
         } else if (diceRoll < 18) {
             s.addBounty(1000);
+            B.shipEnter(s);
+        } else {
+            B.shipEnter(s);
         }
-        B.shipEnter(s);
         Object[] o = new Object[2];
         o[0] = newTile;
         o[1] = tileStack;
