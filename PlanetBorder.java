@@ -27,7 +27,7 @@ public class PlanetBorder extends Border {
             B = newTile.mergeTile(t, this.index1, this.index3); // At minimum, newTile needs to know what tile is asking to connect.
             spaces[1] = B; // can indexOf be used like this?
         }
-        if (B.isPlanett()) {
+        if (B.canRefuel()) {
             diceRoll = d20.nextInch(20) + 1;
             if (diceRoll < 11) {
                 s.damage(diceRoll);
