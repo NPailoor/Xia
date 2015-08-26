@@ -32,25 +32,51 @@ public class PlanetHex extends Hex{
 	public boolean planet() {
 		return myPlanet;
 	}
-	
-	public boolean canBuy(int cargo) {
-		if (cargo < 0 | cargo > 5) {
+
+	public boolean canBuy(int[] cargo) { //[Spice, Holla, Cyber, Plasma, Terra]
+		if (cargo.length() > 5) {
 			throw new IllegalArgumentException("Invalid Cargo");
-		} else {
-			return (myPlanet.supply == cargo && this.canBuy);
+		} else if (max(abs(cargo)) == 0) { // I think you can do this in Java?. This handles the empty case
+			return false;
+		} 
+		else {
+			for (int i = 0; i < cargo.length(); i++) {
+				if (cargo[i] < 0) {
+					throw new IllegalArgumentException("Invalid Cargo");
+				}
+				else if (cargo > 0) {
+					if (myPlanet.canBuy[i] == 0) {
+						return false;
+					}
+				}
+			}
 		
 		}
+		return true; // no problem, the sale can go through
 	}
+
 	
-	publi. boolean canSell(int cargo) {
-		if (cargo < 0 | cargo > 5) {
+	public boolean canSell(int[] cargo) { //[Spice, Holla, Cyber, Plasma, Terra]
+		if (cargo.length() > 5) {
 			throw new IllegalArgumentException("Invalid Cargo");
-		} else {
-			return (myPlanet.demand == cargo && this.canSell);
+		} else if (max(abs(cargo)) == 0) { // I think you can do this in Java?. This handles the empty case
+			return false;
+		} 
+		else {
+			for (int i = 0; i < cargo.length(); i++) {
+				if (cargo[i] < 0) {
+					throw new IllegalArgumentException("Invalid Cargo");
+				}
+				else if (cargo > 0) {
+					if (myPlanet.canSell[i] == 0) {
+						return false;
+					}
+				}
+			}
 		
 		}
-	}
-	
+		return true; // no problem, the sale can go through
+	}	
 	public boolean canRefuel() {
 		return true;
 	}
