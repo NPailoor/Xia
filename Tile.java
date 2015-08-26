@@ -10,13 +10,13 @@ public class Tile {
       5 -> Y
   */
   public String name;
-  public Tile(Border[] Delta, Border[] O, Border[] Square, Border[] T, Border[] I, Border[] Y, String name) {
-    side[0] = Delta;
-    side[1] = O;
-    side[2] = Square;
-    side[3] = T;
-    side[4] = I;
-    side[5] = Y;
+  public Tile(int orient, String name) {
+    side[0] = new Side(orient);
+    side[1] = new Side(orient + 1);
+    side[2] = new Side(orient + 2);
+    side[3] = new Side(orient + 3);
+    side[4] = new Side(orient + 4);
+    side[5] = new Side(orient + 5);
   }
   
   public Hex mergeTile(Tile T, int i, int j) {
