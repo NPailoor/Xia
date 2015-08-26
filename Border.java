@@ -3,6 +3,9 @@ import java.util.*;
 public class Border {
    Hex[] spaces;
    List<Tile> tileStack; // Implemented as a list since it will change in the discover method
+   int index1; //Index identifying its side in its original Tile
+   int index2; //Index identifying its side in successive Tiles
+   int index3; //Index identifying its placement within original Tile side
 
    public Border(Hex A, Hex B, List<Tile> tileStack) { // Alexander's Code
       Hex[] spaces = {A,B};
@@ -45,22 +48,23 @@ public class Border {
       }
    }
    
-   public Object[] move(Ship s, Hex A) { // Returns the popped tile stack and the new tile. Right now I've implemented this as returning an object array. Is there a cleaner way to do this?
+   public Object[] move(Ship s, Hex A) { // needs to accept a tile
       Tile newTile = null;
+      t = A.myTile;
        Hex B = peek(A);
        if(B == null) { // Alexander's Code
           if (tileStack.isEmpty()) {
               return null; // Nowhere to explore 
           }
           newTile = tileStack.remove(0);
-          B = newTile.getHex(); // This method will be written with Tile and will pick a border hex from the tile.
+          B = newTile.mergeTile(t, this.index1, this.index3); // At minimum, newTile needs to know what tile is asking to connect.
           spaces[1] = B; // can indexOf be used like this?
       }
       B.shipEnter(s);
       Object[] o = new Object[2];
       o[0] = newTile;
       o[1] = tileStack;
-      return o; // allows the rest of the game to update the stack. The new tile also somehow needs to be returned
+      return o; // can this be done more cleanly than an object array?
    }
 
 }
