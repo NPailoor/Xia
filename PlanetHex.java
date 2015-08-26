@@ -32,23 +32,44 @@ public class PlanetHex extends Hex{
 	public boolean planet() {
 		return myPlanet;
 	}
-	
-	public boolean canBuy(int cargo) {
-		if (cargo < 0 | cargo > 5) {
+
+	public boolean canBuy(int[] cargo) { //[Spice, Holla, Cyber, Plasma, Terra]
+		if (cargo.length() > 5) {
 			throw new IllegalArgumentException("Invalid Cargo");
 		} else {
-			return (myPlanet.supply == cargo && this.canBuy);
+			for (int i = 0; i < cargo.length(); i++) {
+				if (cargo[i] < 0) {
+					throw new IllegalArgumentException("Invalid Cargo");
+				}
+				else if (cargo > 0) {
+					if (myPlanet.canBuy[i] > 0) {
+						return true;
+					}
+				}
+			}
 		
 		}
+		return false; // this means it got an empty array
 	}
+
 	
-	publi. boolean canSell(int cargo) {
-		if (cargo < 0 | cargo > 5) {
+	public boolean canSell(int[] cargo) { //[Spice, Holla, Cyber, Plasma, Terra]
+		if (cargo.length() > 5) {
 			throw new IllegalArgumentException("Invalid Cargo");
 		} else {
-			return (myPlanet.demand == cargo && this.canSell);
+			for (int i = 0; i < cargo.length(); i++) {
+				if (cargo[i] < 0) {
+					throw new IllegalArgumentException("Invalid Cargo");
+				}
+				else if (cargo > 0) {
+					if (myPlanet.canSell[i] > 0) {
+						return true;
+					}
+				}
+			}
 		
 		}
+		return false; // this means it got an empty array
 	}
 	
 	public boolean canRefuel() {
