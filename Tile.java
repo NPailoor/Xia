@@ -9,7 +9,8 @@ public class Tile {
       4 -> I
       5 -> Y
   */
-  public Tile(Border[] Delta, Border[] O, Border[] Square, Border[] T, Border[] I, Border[] Y) {
+  public String name;
+  public Tile(Border[] Delta, Border[] O, Border[] Square, Border[] T, Border[] I, Border[] Y, String name) {
     side[0] = Delta;
     side[1] = O;
     side[2] = Square;
@@ -22,6 +23,10 @@ public class Tile {
     Hex B = this[i][j].spaces[0]; //Draws Hex from corresponding border
     this.side[i] = T.side[i];
     return B;
+  }
+  
+  public String toString() {
+    return name;
   }
     
 }
