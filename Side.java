@@ -4,7 +4,7 @@ public class Side {
   
   public Side(int i) {
     orientation = i;
-    borders = new Border[5]
+    borders = new Border[5];
   }
   
   public Border getBorder(int j) {
