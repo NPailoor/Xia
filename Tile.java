@@ -14,11 +14,11 @@ public class Tile {
   public Tile(int orient, String name) {
     this.orient = orient;
     side[0] = new Side(orient);
-    side[1] = new Side(orient + 1);
-    side[2] = new Side(orient + 2);
-    side[3] = new Side(orient + 3);
-    side[4] = new Side(orient + 4);
-    side[5] = new Side(orient + 5);
+    side[1] = new Side((orient + 1)%6);
+    side[2] = new Side((orient + 2)%6);
+    side[3] = new Side((orient + 3)%6);
+    side[4] = new Side((orient + 4)%6);
+    side[5] = new Side((orient + 5)%6);
   }
   
   //For merging new tile to tile discovered from
