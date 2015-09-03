@@ -26,4 +26,8 @@ public class Player {
   public string toString() {
     return name;
   }
+  
+  public void takeTurn() {
+    // Do stuff
+  }
 }
