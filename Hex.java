@@ -102,4 +102,19 @@ public class Hex {
 	public boolean canRefuel() {
 		return false;
 	}
+	
+	public void connect(Hex a, int direction, List<Tile> tileStack) {
+		if (this.neighbors == null) {
+			Border b = new Border(this, a, tileStack);
+			this.neighbors[direction%6] = b;
+			if (a.neighbors[(direction + 3)%6] == null) {
+				a.neighbors[(direction + 3)%6] = b;
+			} else if (a.neighbors[(direction + 3)%6].peek(a) == null) { 
+				a.neighbors[(direction + 3)%6].spaces[1] = this;
+			}
+		} else if (this.neighbors[direction%6] == null) {
+			this.neighbors[direction%6].spaces[1] = a;
+			a.neighbors[(direction + 3)%6] = this.neighbors[direction%6];
+		}
+	}
 }
