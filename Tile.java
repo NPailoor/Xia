@@ -3,11 +3,11 @@ public class Tile {
   private Hex[] hexList //Index of Hexes, to be implemented in individual extensions
   public Side[] side;  //Six arrays of edges
   /*  0 -> Delta type sides
-      1 -> O
-      2 -> Square
+      1 -> Y
+      2 -> I
       3 -> T
-      4 -> I
-      5 -> Y
+      4 -> Square
+      5 -> O
   */
   public int orient; //Number of turns counterclockwise; orient = 5 would put the Y side at the top
   public String name;
