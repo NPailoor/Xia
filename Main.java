@@ -22,16 +22,16 @@ public class Main {
     while(!gameOver) {
       gameOver = this.advanceTurn();
       if (gameOver) {
-        winner = turnQueue[n-1];
+        winner = turnQueue[turnNum-1];
       }
     }
     
   }
   
   private boolean advanceTurn() {
-    turnPlayer = turnQueue(n);
+    turnPlayer = turnQueue(turnNum);
     turnPlayer.takeTurn(); // not sure about this method yet
-    n++;
+    turnNum++;
     return (player.vp > target));
   }
 }
