@@ -1,3 +1,5 @@
+import java.util.*; // I think this is where collections is?
+
 public class Main {
   Player[] turnQueue;
   Board myBoard;
@@ -12,6 +14,7 @@ public class Main {
     this.turnQueue = turnQueue;
     this.myBoard = myBoard;
     this.tileStack = tileStack;
+    Collections.shuffle(Arrays.asList(tileStack)); // this should shuffle the tileStack.
     this.title = title;
     this.target = target;
     turnNum = 0;
