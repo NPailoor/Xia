@@ -103,9 +103,9 @@ public class Hex {
 		return false;
 	}
 	
-	public void connect(Hex a, int direction, List<Tile> tileStack) {
+	public void connect(Hex a, int direction) {
 		if (this.neighbors == null) {
-			Border b = new Border(this, a, tileStack);
+			Border b = new Border(this, a);
 			this.neighbors[direction%6] = b;
 			if (a.neighbors[(direction + 3)%6] == null) {
 				a.neighbors[(direction + 3)%6] = b;
