@@ -1,6 +1,5 @@
 public class Player {
   public int vp;
-  public int target;
   public Ship myShip;
   public String name;
   
@@ -15,10 +14,6 @@ public class Player {
     vp = vp + gain;
   }
   
-  public boolean hasWon() {
-    return (vp >= target);
-  }
-  
   public void changeShip(Ship newShip) {
     myShip = ship;
   }
@@ -28,6 +23,6 @@ public class Player {
   }
   
   public void takeTurn() {
-    // Do stuff
+    // Do stuff. Someone who knows how to accept console info in java should write this
   }
 }
