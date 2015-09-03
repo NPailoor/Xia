@@ -11,6 +11,11 @@ public class Hex {
       cargo = new int[5];
       myTile = t;
    }
+   
+   public Hex(Border[] b, Tile t) {
+   	Ship s = null;
+   	this(b, s, t);
+   }
 	//Topmost border is A, then working clockwise is B, C, D, E, F
    public Hex(Border A, Border B, Border C, Border D, Border E, Border F, Ship s, Tile t) {
       Border[] neighbors = {A, B, C, D, E, F};
