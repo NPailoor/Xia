@@ -1,5 +1,6 @@
 public class LostSector extends Tile {
   public LostSector(int orient, List<Tile> tileStack) {
+    Hex[] hexlist = new Hex[19];
     //Implementing Delta side
     side[0] = new Side(orient%6);
     //Empty border array as a placeholder
@@ -83,5 +84,44 @@ public class LostSector extends Tile {
     hexlist[11].connect(hexlist[0], 1);
     hexlist[0].neighbors[5] = side[5].borders[4];
     side[5].borders[4] = new Border(hexlist[0], tileStack);
+    //Connecting inner spiral
+    hexlist[12] = new Hex(this);
+    hexlist[0].connect(hexlist[12], 3);
+    hexlist[11].connect(hexlist[12], 2);
+    hexlist[1].connect(hexlist[12], 4);
+    hexlist[13] = new Hex(this);
+    hexlist[12].connect(hexlist[13], 2);
+    hexlist[1].connect(hexlist[13], 3);
+    hexlist[2].connect(hexlist[13], 4);
+    hexlist[3].connect(hexlist[13], 5);
+    hexlist[14] = new Hex(this);
+    hexlist[13].connect(hexlist[14], 3);
+    hexlist[3].connect(hexlist[14], 4);
+    hexlist[4].connect(hexlist[14], 5);
+    hexlist[5].connect(hexlist[14], 0);
+    hexlist[15] = new Hex(this);
+    hexlist[14].connect(hexlist[15], 4);
+    hexlist[5].connect(hexlist[15], 5);
+    hexlist[6].connect(hexlist[15], 0);
+    hexlist[7].connect(hexlist[15], 1);
+    hexlist[16] = new Hex(this);
+    hexlist[15].connect(hexlist[16], 5);
+    hexlist[7].connect(hexlist[16], 0);
+    hexlist[8].connect(hexlist[16], 1);
+    hexlist[9].connect(hexlist[16], 2);
+    hexlist[17] = new Hex(this);
+    hexlist[16].connect(hexlist[17], 0);
+    hexlist[9].connect(hexlist[17], 1);
+    hexlist[10].connect(hexlist[17], 2);
+    hexlist[11].connect(hexlist[17], 3);
+    hexlist[12].connect(hexlist[17], 4);
+    //Center hex
+    hexlist[18] = new Hex(this);
+    hexlist[17].connect(hexlist[18], 2);
+    hexlist[12].connect(hexlist[18], 3);
+    hexlist[13].connect(hexlist[18], 4);
+    hexlist[14].connect(hexlist[18], 5);
+    hexlist[15].connect(hexlist[18], 0);
+    hexlist[16].connect(hexlist[18], 1);
   }
 }
