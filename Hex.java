@@ -11,6 +11,11 @@ public class Hex {
       cargo = new int[5];
       myTile = t;
    }
+   
+   public Hex(Border[] b, Tile t) {
+   	Ship s = null;
+   	this(b, s, t);
+   }
 	//Topmost border is A, then working clockwise is B, C, D, E, F
    public Hex(Border A, Border B, Border C, Border D, Border E, Border F, Ship s, Tile t) {
       Border[] neighbors = {A, B, C, D, E, F};
@@ -96,5 +101,20 @@ public class Hex {
 	
 	public boolean canRefuel() {
 		return false;
+	}
+	
+	public void connect(Hex a, int direction) {
+		if (this.neighbors == null) {
+			Border b = new Border(this, a);
+			this.neighbors[direction%6] = b;
+			if (a.neighbors[(direction + 3)%6] == null) {
+				a.neighbors[(direction + 3)%6] = b;
+			} else if (a.neighbors[(direction + 3)%6].peek(a) == null) { 
+				a.neighbors[(direction + 3)%6].spaces[1] = this;
+			}
+		} else if (this.neighbors[direction%6] == null) {
+			this.neighbors[direction%6].spaces[1] = a;
+			a.neighbors[(direction + 3)%6] = this.neighbors[direction%6];
+		}
 	}
 }
